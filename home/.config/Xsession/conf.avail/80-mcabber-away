@@ -1,1 +1,1 @@
-run-one mcabber_away.sh
+run-one mcabber_away.sh &
