@@ -4,11 +4,13 @@
 # status to "online" when xscreensaver is deactivated.
 
 MCABBER_DIR=~/.mcabber
+WEECHAT_DIR=~/.weechat
 AWAY_MESSAGE="I'm not at my keyboard right now."
 
 send_command() {
-	local cmd="$1"
-	for file in "$MCABBER_DIR"/*; do
+	local dir="$1"
+	local cmd="$2"
+	for file in "$dir"/*; do
 		if [ -p "$file" ]; then
 			echo "$cmd" > "$file"
 		fi
@@ -16,11 +18,13 @@ send_command() {
 }
 
 set_away() {
-	send_command "status away $AWAY_MESSAGE"
+	send_command "$MCABBER_DIR" "status away $AWAY_MESSAGE"
+	send_command "$WEECHAT_DIR" "*/away $AWAY_MESSAGE"
 }
 
 set_online() {
-	send_command "status online -"
+	send_command "$MCABBER_DIR" "status online -"
+	send_command "$WEECHAT_DIR" "*/away"
 }
 
 process() {
