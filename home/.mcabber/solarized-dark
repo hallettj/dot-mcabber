@@ -20,7 +20,7 @@
 #set color_general      = brightblue
 #set color_info         = brightgreen
 #set color_msgin        = brightblue
-#set color_msgout       = brightgreen
+#set color_msgout       = blue
 #set color_msghl        = cyan
 #set color_bgstatus     = black
 #set color_status       = yellow
@@ -38,7 +38,7 @@ set color_background   = default
 set color_general      = 12
 set color_info         = 10
 set color_msgin        = 12
-set color_msgout       = 10
+set color_msgout       = 4
 set color_msghl        = 6
 set color_bgstatus     = black
 set color_status       = 3
