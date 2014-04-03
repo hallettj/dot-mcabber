@@ -1,0 +1,11 @@
+#!/bin/bash
+
+JID=$1
+
+if [ -z "$JID" ]; then
+	echo "Usage: $0 jid"
+	exit 1
+fi
+
+PASS=$(pass jabber/$JID)
+exec mcabber -f <(cat "$HOME/.mcabber/logins/$JID" | sed "s|PASSWORD|$PASS|")
