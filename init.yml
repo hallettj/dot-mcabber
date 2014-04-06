@@ -9,3 +9,4 @@
       sudo: yes
       with_items:
         - mcabber
+        - pass
