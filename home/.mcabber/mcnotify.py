@@ -31,9 +31,13 @@ if event == 'MSG' and arg1 == 'IN':
 	if SHORT_NICK and '@' in arg2:
 		arg2 = arg2[0:arg2.index('@')]
 
-	if filename is not None:
+	if filename is not None and os.path.exists(filename):
 		f   = file(filename)
 		msg = f.read()
+		os.remove(filename)
+
+	if len(msg) < 1:
+		exit(1)
 
 	pynotify.init('mcnotify')
 	msgbox = pynotify.Notification(unicode(arg2+':', encoding),unicode(msg, encoding))
@@ -43,8 +47,9 @@ if event == 'MSG' and arg1 == 'IN':
 	if (CMD_MSG_IN):
 		os.system(CMD_MSG_IN + '> /dev/null 2>&1')
 
-	if filename is not None and os.path.exists(filename):
-		os.remove(filename)
 	pynotify.uninit()
+
+	# An exit status of 2 signals mcabber to produce a beep.
+	exit(2)
 
 # vim:set noet sts=8 sw=8:
