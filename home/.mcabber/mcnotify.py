@@ -33,7 +33,7 @@ if event == 'MSG' and arg1 == 'IN':
 
 	if filename is not None and os.path.exists(filename):
 		f   = file(filename)
-		msg = f.read()
+		msg = f.read().strip()
 		os.remove(filename)
 
 	if len(msg) < 1:

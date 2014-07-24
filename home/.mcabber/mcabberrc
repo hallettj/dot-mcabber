@@ -207,7 +207,7 @@ set max_history_blocks = 8
 # Set beep_on_message to 1 if you want mcabber to beep when receiving
 # a new message (except in chatrooms).  If you want a more sophisticated
 # system (e.g. play a sound), have a look at 'events_command' below.
-set beep_on_message = 1
+set beep_on_message = 0
 
 # External command for events
 # You can specify a script or process to be launched when an event occurs.
@@ -231,7 +231,7 @@ set beep_on_message = 1
 # See sample script in contrib/ directory.
 
 set events_command = ~/.mcabber/mcnotify.py
-set events_ignore_active_window = 1
+set events_ignore_active_window = 0
 set event_log_files = 1
 #set event_log_dir = ~/.mcabber/event_files
 
