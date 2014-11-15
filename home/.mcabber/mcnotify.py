@@ -39,6 +39,10 @@ if event == 'MSG' and arg1 == 'IN':
 	if len(msg) < 1:
 		exit(1)
 
+	# The DBUS address may be stale if we are in a tmux session that has been
+	# reattached.
+	del os.environ['DBUS_SESSION_BUS_ADDRESS']
+
 	pynotify.init('mcnotify')
 	msgbox = pynotify.Notification(unicode(arg2+':', encoding),unicode(msg, encoding))
 	msgbox.set_timeout(3000)
